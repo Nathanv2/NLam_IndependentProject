@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
         MobsDestroyed += 1;
         Debug.Log("MobsDestroyed: " + MobsDestroyed);
 
-        if (MobsDestroyed < 5)
+        if (MobsDestroyed < 10)
         {
             Door.SetActive(true);
         }

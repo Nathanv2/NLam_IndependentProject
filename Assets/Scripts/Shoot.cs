@@ -18,4 +18,12 @@ public class Shoot : MonoBehaviour
         transform.Translate(Vector3.forward * Time.deltaTime * speed);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Wall"))
+        {
+            Destroy(gameObject);
+        }
+    }
+
 }

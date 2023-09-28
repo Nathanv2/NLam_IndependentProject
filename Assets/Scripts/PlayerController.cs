@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour
     public GameObject Projectile;
     // Set the speed of the vehicle
     private float speed = 15.0f;
-    private float turnSpeed = 100.0f;
 
     // Declares the input variables
     public float horizontalInput;

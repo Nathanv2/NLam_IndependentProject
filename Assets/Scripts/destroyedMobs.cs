@@ -12,7 +12,9 @@ public class destroyedMobs : MonoBehaviour
         {
             Destroy(other.gameObject);
             Destroy(gameObject);
+            gameManager = FindObjectOfType<GameManager>();
             gameManager.AmountDestroyed();
+            
         }
     }
 }
