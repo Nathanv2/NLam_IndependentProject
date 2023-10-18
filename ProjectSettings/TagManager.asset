@@ -7,6 +7,9 @@ TagManager:
   - Enemy
   - Projectile
   - Wall
+  - CinemachineTarget
+  - Coin
+  - Obstacle
   layers:
   - Default
   - TransparentFX

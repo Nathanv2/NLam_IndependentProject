@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
     public GameObject Door;
     private int MobsDestroyed = 0;
 
+    private bool isCrashed = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +33,16 @@ public class GameManager : MonoBehaviour
         else
         {
             Door.SetActive(false);
+        }
+    }
+
+    public void GameOver()
+    {
+        isCrashed = true;
+
+        if (isCrashed == true)
+        {
+            Time.timeScale = 0;
         }
     }
 }

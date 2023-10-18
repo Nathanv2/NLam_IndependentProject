@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour
     public float horizontalInput;
     private float verticalInput;
 
+    public AudioClip coinSound;
+    public AudioClip explosionSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,5 +37,20 @@ public class PlayerController : MonoBehaviour
         {
             Instantiate(Projectile, transform.position, Projectile.transform.rotation);
         }
+
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (gameObject.CompareTag("Player") && other.gameObject.CompareTag("Coin"))
+        {
+            GetComponent<AudioSource>().PlayOneShot(coinSound, 1.0f);
+        }
+
+        if (gameObject.CompareTag("Player") && other.gameObject.CompareTag("Obstacle"))
+        {
+            GetComponent<AudioSource>().PlayOneShot(explosionSound, 1.0f);
+        }
+    }
+
 }
