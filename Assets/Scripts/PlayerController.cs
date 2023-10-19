@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     public AudioClip coinSound;
     public AudioClip explosionSound;
 
+    public ParticleSystem Explosion;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +52,7 @@ public class PlayerController : MonoBehaviour
         if (gameObject.CompareTag("Player") && other.gameObject.CompareTag("Obstacle"))
         {
             GetComponent<AudioSource>().PlayOneShot(explosionSound, 1.0f);
+            Explosion.Play();
         }
     }
 

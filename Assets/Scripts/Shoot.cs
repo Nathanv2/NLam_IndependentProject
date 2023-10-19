@@ -6,6 +6,11 @@ public class Shoot : MonoBehaviour
 {
 
     public float speed = 30.0f;
+
+    public ParticleSystem Explosion;
+    
+    public Renderer rend;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +25,7 @@ public class Shoot : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Wall"))
+        if(other.CompareTag("Wall") || other.CompareTag("Enemy"))
         {
             Destroy(gameObject);
         }
