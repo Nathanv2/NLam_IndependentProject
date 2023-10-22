@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     private bool isCrashed = false;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,12 +29,23 @@ public class GameManager : MonoBehaviour
 
         if (MobsDestroyed < 10)
         {
-            Door.SetActive(true);
+            DoorOpen();
+
         }
         else
         {
-            Door.SetActive(false);
+            DoorClosed();
         }
+    }
+
+    public void DoorOpen()
+    {
+        Door.SetActive(true);
+    }
+
+    public void DoorClosed()
+    {
+        Door.SetActive(false);
     }
 
     public void GameOver()

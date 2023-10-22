@@ -11,6 +11,8 @@ TagManager:
   - Coin
   - Obstacle
   - Test
+  - test1
+  - Door
   layers:
   - Default
   - TransparentFX

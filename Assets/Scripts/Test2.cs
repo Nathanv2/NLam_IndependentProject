@@ -2,36 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameOver : MonoBehaviour
+public class Test2 : MonoBehaviour
 {
-
-    public GameManager gameManager;
     private Animator animPlayer;
-
+    // Start is called before the first frame update
     void Start()
     {
         animPlayer = GetComponent<Animator>();
     }
 
+    // Update is called once per frame
     void Update()
     {
-
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (gameObject.CompareTag("Obstacle") && other.gameObject.CompareTag("Player"))
-        {
-            Destroy(gameObject);
-            gameManager.GameOver();
-        }
-
+        
     }
 
     public void playanim()
     {
         animPlayer.SetBool("isTrigger", true);
+        Debug.Log("djwoidjwa");
     }
-
 }
-

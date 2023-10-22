@@ -54,6 +54,20 @@ public class PlayerController : MonoBehaviour
             GetComponent<AudioSource>().PlayOneShot(explosionSound, 1.0f);
             Explosion.Play();
         }
-    }
 
+        if (other.CompareTag("Door"))
+        {
+            GameObject cube = GameObject.Find("Obstacle");
+
+            if (cube != null)
+            {
+                GameOver obstacle = cube.GetComponent<GameOver>();
+                if (obstacle != null)
+                {
+                    obstacle.playanim();
+                }
+            }
+        }
+    }
 }
+
