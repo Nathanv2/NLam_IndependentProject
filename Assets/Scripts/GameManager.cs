@@ -25,7 +25,6 @@ public class GameManager : MonoBehaviour
     public void AmountDestroyed()
     {
         MobsDestroyed += 1;
-        Debug.Log("MobsDestroyed: " + MobsDestroyed);
 
         if (MobsDestroyed < 10)
         {

@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
 
     public ParticleSystem Explosion;
 
+    public SpawnManager SpawnPowerUp;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -68,6 +70,20 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+
+        if (other.CompareTag("Speed Boost"))
+        {
+            speed = 25.0f;
+            Destroy(other.gameObject);
+            StartCoroutine(PowerUpCountdown());
+        }
+    }
+
+    IEnumerator PowerUpCountdown()
+    {
+        yield return new WaitForSeconds(8);
+        speed = 15.0f;
+        SpawnPowerUp.SpawnBooster();
     }
 }
 

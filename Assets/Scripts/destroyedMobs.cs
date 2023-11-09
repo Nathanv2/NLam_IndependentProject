@@ -18,7 +18,6 @@ public class destroyedMobs : MonoBehaviour
             GetComponent<Collider>().enabled = false;
             GetComponent<Rigidbody>().useGravity = true;
             gameManager = FindObjectOfType<GameManager>();
-            gameManager.AmountDestroyed();
             Explosion.Play();
         }
         //if position is below a certain lvl destroy game object
