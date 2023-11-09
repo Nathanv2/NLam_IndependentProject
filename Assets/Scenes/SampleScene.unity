@@ -1000,6 +1000,7 @@ MonoBehaviour:
   coinSound: {fileID: 8300000, guid: 253f4853afb3bc143a84c148fb079ffc, type: 3}
   explosionSound: {fileID: 8300000, guid: d3855a8fcd7d4234a9498e9398697035, type: 3}
   Explosion: {fileID: 1456017499}
+  SpawnPowerUp: {fileID: 562891519}
 --- !u!65 &87508019
 BoxCollider:
   m_ObjectHideFlags: 0
