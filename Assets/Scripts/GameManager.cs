@@ -47,6 +47,13 @@ public class GameManager : MonoBehaviour
         Door.SetActive(false);
     }
 
+    public void Victory()
+    {
+        Time.timeScale = 0;
+        Debug.Log("Ok");
+    }
+
+
     public void GameOver()
     {
         isCrashed = true;
@@ -56,4 +63,5 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
         }
     }
+
 }

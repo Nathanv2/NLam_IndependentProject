@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
 
     public SpawnManager SpawnPowerUp;
 
+    public GameManager gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,12 +38,6 @@ public class PlayerController : MonoBehaviour
         // Allows you to move the vehicle forward with speed
         transform.Translate(Vector3.forward * Time.deltaTime * speed * verticalInput);
         transform.Translate(Vector3.right * Time.deltaTime * speed * horizontalInput);
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Instantiate(Projectile, transform.position, Projectile.transform.rotation);
-        }
-
     }
 
     private void OnTriggerEnter(Collider other)
@@ -76,6 +72,11 @@ public class PlayerController : MonoBehaviour
             speed = 25.0f;
             Destroy(other.gameObject);
             StartCoroutine(PowerUpCountdown());
+        }
+
+        if (other.CompareTag("Portal"))
+        {
+            gameManager.Victory();
         }
     }
 

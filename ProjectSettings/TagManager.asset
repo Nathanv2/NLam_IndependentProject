@@ -14,6 +14,8 @@ TagManager:
   - test1
   - Door
   - Speed Boost
+  - Boss
+  - Portal
   layers:
   - Default
   - TransparentFX

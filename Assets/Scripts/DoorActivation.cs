@@ -5,6 +5,7 @@ using UnityEngine;
 public class DoorActivation : MonoBehaviour
 {
     public GameObject Door;
+    public GameObject finalDoor;
     private int waveCount;
     private int maxWaves = 6;
 
@@ -32,6 +33,10 @@ public class DoorActivation : MonoBehaviour
         }
         return 0;
 
+    }
 
+    public void DoorOpen()
+    {
+        finalDoor.SetActive(false);
     }
 }
