@@ -8,8 +8,10 @@ public class SpawnManager : MonoBehaviour
     public GameObject Booster;
     public float spawnInterval = 3.0f;
     private float spawnYPosition = 101.0f;
-    public Vector2 spawnArea = new Vector2(476.0f, 525.0f);
-    public Vector2 spawnAreaZ = new Vector2(490.0f, 550.0f);
+    private Vector2 spawnArea = new Vector2(476.0f, 525.0f);
+    private Vector2 spawnAreaZ = new Vector2(490.0f, 550.0f);
+    private Vector2 spawnArea2 = new Vector2(410f, 580);
+    private Vector2 spawnAreaZ2 = new Vector2(660f, 760f);
     private int maxWaves = 6;
     private int enemyCount;
     private int waveNumber = 0;
@@ -80,5 +82,20 @@ public class SpawnManager : MonoBehaviour
         float randomZPosition = Random.Range(spawnAreaZ.x, spawnAreaZ.y);
         Vector3 spawnPosition = new Vector3(randomXPosition, spawnYPosition, randomZPosition);
         return spawnPosition;
+    }
+
+    public void SpawnEnemies()
+    {
+        int EnemiesIndex = Random.Range(0, Enemies.Length);
+        Instantiate(Enemies[EnemiesIndex], SpawnPosition2(), Enemies[EnemiesIndex].transform.rotation);
+        Debug.Log("Working");
+    }
+
+    public Vector3 SpawnPosition2()
+    {
+        float randomXPosition2 = Random.Range(spawnArea2.x, spawnArea2.y);
+        float randomZPosition2 = Random.Range(spawnAreaZ2.x, spawnAreaZ2.y);
+        Vector3 spawnPosition2 = new Vector3(randomXPosition2, spawnYPosition, randomZPosition2);
+        return spawnPosition2;
     }
 }

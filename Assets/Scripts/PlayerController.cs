@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
 
     public GameObject Projectile;
+    public GameObject Boss;
     // Set the speed of the vehicle
     private float speed = 15.0f;
     private int Coins = 0;
@@ -80,9 +81,13 @@ public class PlayerController : MonoBehaviour
 
         if (other.CompareTag("Portal"))
         {
-            if(Coins >= maxCoins )
+            if(Coins >= maxCoins && Boss == null)
             {
                 gameManager.Victory();
+            }
+            else if(Boss != null)
+            {
+                Debug.Log("Boss is alive!!!");
             }
             else
             {
