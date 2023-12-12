@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemies2 : MonoBehaviour
 {
     public SpawnManager spawnManager;
+    private int Once = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,10 +20,11 @@ public class Enemies2 : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if(other.CompareTag("Player") && Once <= 0)
         {
             spawnManager.SpawnEnemies(50);
             spawnManager.SpawnCoins(15);
+            Once = Once + 1;
         }
     }
 }

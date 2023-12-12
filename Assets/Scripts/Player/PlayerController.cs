@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     private float speed = 15.0f;
     private int Coins = 0;
     private int maxCoins = 8;
+    private int Once = 0;
 
 
     // Declares the input variables
@@ -65,9 +66,10 @@ public class PlayerController : MonoBehaviour
             if (cube != null)
             {
                 GameOver obstacle = cube.GetComponent<GameOver>();
-                if (obstacle != null)
+                if (obstacle != null && Once == 0)
                 {
                     obstacle.playanim();
+                    Once = Once + 1;
                 }
             }
         }
