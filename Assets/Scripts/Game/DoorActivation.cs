@@ -40,6 +40,6 @@ public class DoorActivation : MonoBehaviour
 
     public void DoorOpen()
     {
-        finalDoor.SetActive(false);
+        animPlayer.SetBool("isTrigger", true);
     }
 }
