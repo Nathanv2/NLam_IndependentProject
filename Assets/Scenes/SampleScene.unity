@@ -1496,7 +1496,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5059055255345807187, guid: 20b6043d51842f343b503e69c11e2b3c, type: 3}
       propertyPath: m_Name
-      value: Coin (1)
+      value: Coin
       objectReference: {fileID: 0}
     - target: {fileID: 5059055255345807191, guid: 20b6043d51842f343b503e69c11e2b3c, type: 3}
       propertyPath: m_RootOrder
@@ -2681,7 +2681,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 271508174}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 335.66287, y: -4.46, z: -36.5}
+  m_LocalPosition: {x: 335.66287, y: -4.46, z: 226.1}
   m_LocalScale: {x: 7.765278, y: 10.311875, z: 0.6350619}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4930,6 +4930,7 @@ MonoBehaviour:
   - {fileID: 116306834957405983, guid: 6b686823ecd4f554683fd0eeaa1962d0, type: 3}
   - {fileID: 5600247081898987659, guid: bc402d131abc9fb468680286bb27461a, type: 3}
   Booster: {fileID: 7436890942679182756, guid: 5fed3206df83e85459a9223fe3aeebe8, type: 3}
+  coinPrefab: {fileID: 5059055255345807187, guid: 20b6043d51842f343b503e69c11e2b3c, type: 3}
   spawnInterval: 3
   doorActivation: {fileID: 83947092}
 --- !u!4 &562891520
@@ -6094,7 +6095,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 725910688}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.7, y: -35.26, z: -4.8}
+  m_LocalPosition: {x: -42.09, y: -35.26, z: -4.8}
   m_LocalScale: {x: 5.7555, y: 5.7555, z: 5.7555}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11632,7 +11633,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1542253525}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 496.1, y: 102.95, z: 562.3}
+  m_LocalPosition: {x: 499.6, y: 106.5, z: 701}
   m_LocalScale: {x: 5.7555, y: 5.7555, z: 5.7555}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -21,7 +21,8 @@ public class Enemies2 : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            spawnManager.SpawnEnemies();
+            spawnManager.SpawnEnemies(50);
+            spawnManager.SpawnCoins(15);
         }
     }
 }

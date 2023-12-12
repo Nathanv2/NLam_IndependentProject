@@ -6,15 +6,19 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject[] Enemies;
     public GameObject Booster;
+    public GameObject coinPrefab;
+
     public float spawnInterval = 3.0f;
     private float spawnYPosition = 101.0f;
     private Vector2 spawnArea = new Vector2(476.0f, 525.0f);
     private Vector2 spawnAreaZ = new Vector2(490.0f, 550.0f);
     private Vector2 spawnArea2 = new Vector2(410f, 580);
     private Vector2 spawnAreaZ2 = new Vector2(660f, 760f);
+
     private int maxWaves = 6;
     private int enemyCount;
     private int waveNumber = 0;
+
     public DoorActivation doorActivation;
     private float totalGameTime = 100.0f;
 
@@ -84,11 +88,23 @@ public class SpawnManager : MonoBehaviour
         return spawnPosition;
     }
 
-    public void SpawnEnemies()
+    public void SpawnEnemies(int numberOfEnemies)
     {
-        int EnemiesIndex = Random.Range(0, Enemies.Length);
-        Instantiate(Enemies[EnemiesIndex], SpawnPosition2(), Enemies[EnemiesIndex].transform.rotation);
-        Debug.Log("Working");
+        for (int i = 0; i < numberOfEnemies; i++)
+        {
+            int enemiesIndex = Random.Range(0, Enemies.Length);
+            Instantiate(Enemies[enemiesIndex], SpawnPosition2(), Enemies[enemiesIndex].transform.rotation);
+            Debug.Log("Working");
+        }
+    }
+
+    public void SpawnCoins(int numberOfCoins)
+    {
+        for (int i = 0; i < numberOfCoins; i++)
+        {
+            Instantiate(coinPrefab, SpawnPosition2(), coinPrefab.transform.rotation);
+            Debug.Log("Working");
+        }
     }
 
     public Vector3 SpawnPosition2()
