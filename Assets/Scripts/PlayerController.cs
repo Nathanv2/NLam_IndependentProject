@@ -8,6 +8,9 @@ public class PlayerController : MonoBehaviour
     public GameObject Projectile;
     // Set the speed of the vehicle
     private float speed = 15.0f;
+    private int Coins = 0;
+    private int maxCoins = 8;
+
 
     // Declares the input variables
     public float horizontalInput;
@@ -45,6 +48,7 @@ public class PlayerController : MonoBehaviour
         if (gameObject.CompareTag("Player") && other.gameObject.CompareTag("Coin"))
         {
             GetComponent<AudioSource>().PlayOneShot(coinSound, 1.0f);
+            Debug.Log(Coins = Coins + 1);
         }
 
         if (gameObject.CompareTag("Player") && other.gameObject.CompareTag("Obstacle"))
@@ -76,7 +80,14 @@ public class PlayerController : MonoBehaviour
 
         if (other.CompareTag("Portal"))
         {
-            gameManager.Victory();
+            if(Coins >= maxCoins )
+            {
+                gameManager.Victory();
+            }
+            else
+            {
+                Debug.Log("You are missing some coins!!!");
+            }
         }
     }
 

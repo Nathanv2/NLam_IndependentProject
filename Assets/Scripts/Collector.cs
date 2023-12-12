@@ -5,7 +5,6 @@ using UnityEngine;
 public class Collector : MonoBehaviour
 {
 
-
     private void OnTriggerEnter(Collider other)
     {
         if (gameObject.CompareTag("Coin") && other.gameObject.CompareTag("Player"))
