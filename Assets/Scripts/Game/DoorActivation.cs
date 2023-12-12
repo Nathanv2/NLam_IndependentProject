@@ -9,9 +9,12 @@ public class DoorActivation : MonoBehaviour
     private int waveCount;
     private int maxWaves = 6;
 
+    private Animator animPlayer;
+
     void Start()
     {
         waveCount = 0;
+        animPlayer = GetComponent<Animator>();
     }
 
     void Update()
@@ -29,7 +32,7 @@ public class DoorActivation : MonoBehaviour
         }
         else
         {
-            Door.SetActive(false);
+            animPlayer.SetBool("isTrigger", true);
         }
         return 0;
 
