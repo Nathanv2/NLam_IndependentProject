@@ -116,6 +116,7 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   rend: {fileID: 0}
   Explosion: {fileID: 2344418248922683887}
+  speed: 4
 --- !u!54 &3493948355220473610
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -131,7 +132,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!1001 &2471273345684166439
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameOver : MonoBehaviour
+public class Obstacle : MonoBehaviour
 {
 
     public GameManager gameManager;
@@ -23,7 +23,6 @@ public class GameOver : MonoBehaviour
         if (gameObject.CompareTag("Obstacle") && other.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
-            gameManager.GameOver();
         }
 
     }

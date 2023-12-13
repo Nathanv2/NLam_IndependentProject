@@ -113,6 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00dae7a8ce6c10543b381e426cbde5d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 4
   gameManager: {fileID: 0}
   rend: {fileID: 0}
   Explosion: {fileID: 5727069057678999528}
@@ -131,7 +132,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!1001 &5600247081723359520
 PrefabInstance:
   m_ObjectHideFlags: 0

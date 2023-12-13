@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     private int Coins = 0;
     private int maxCoins = 8;
     private int Once = 0;
+    private int Health = 100;
+    private int Dead = 0;
 
 
     // Declares the input variables
@@ -47,16 +49,32 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (gameObject.CompareTag("Player") && other.gameObject.CompareTag("Coin"))
+        if (other.CompareTag("Coin"))
         {
             GetComponent<AudioSource>().PlayOneShot(coinSound, 1.0f);
             Debug.Log(Coins = Coins + 1);
         }
 
-        if (gameObject.CompareTag("Player") && other.gameObject.CompareTag("Obstacle"))
+        if (other.CompareTag("Obstacle"))
         {
             GetComponent<AudioSource>().PlayOneShot(explosionSound, 1.0f);
             Explosion.Play();
+            Health = Health - 50;
+
+            if(Health == Dead)
+            {
+                Death();
+            }
+        }
+        else if (other.CompareTag("Enemy"))
+        {
+            Health = Health - 10;
+            Debug.Log("OW");
+
+            if(Health == Dead)
+            {
+                Death();
+            }
         }
 
         if (other.CompareTag("Door"))
@@ -65,7 +83,7 @@ public class PlayerController : MonoBehaviour
 
             if (cube != null)
             {
-                GameOver obstacle = cube.GetComponent<GameOver>();
+                Obstacle obstacle = cube.GetComponent<Obstacle>();
                 if (obstacle != null && Once == 0)
                 {
                     obstacle.playanim();
@@ -103,6 +121,11 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(8);
         speed = 15.0f;
         SpawnPowerUp.SpawnBooster();
+    }
+
+    private void Death()
+    {
+        gameManager.GameOver();
     }
 }
 
