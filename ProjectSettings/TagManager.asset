@@ -16,6 +16,7 @@ TagManager:
   - Speed Boost
   - Boss
   - Portal
+  - Trigger
   layers:
   - Default
   - TransparentFX

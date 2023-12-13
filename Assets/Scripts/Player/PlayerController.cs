@@ -30,9 +30,10 @@ public class PlayerController : MonoBehaviour
 
     public ParticleSystem Explosion;
 
-    public SpawnManager SpawnPowerUp;
+    public SpawnManager spawnManager;
 
     public GameManager gameManager;
+
 
     // Start is called before the first frame update
     void Start()
@@ -89,9 +90,10 @@ public class PlayerController : MonoBehaviour
             Death();
         }
 
-        if (other.CompareTag("Door"))
+        if (other.CompareTag("Trigger"))
         {
             GameObject cube = GameObject.Find("Obstacle");
+            spawnManager.ClearedWavesTextVisibility();
 
             if (cube != null)
             {
@@ -100,6 +102,7 @@ public class PlayerController : MonoBehaviour
                 {
                     obstacle.playanim();
                     Once = Once + 1;
+                    Debug.Log("NO");
                 }
             }
         }
@@ -132,7 +135,7 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(8);
         speed = 15.0f;
-        SpawnPowerUp.SpawnBooster();
+        spawnManager.SpawnBooster();
     }
 
     private void Death()

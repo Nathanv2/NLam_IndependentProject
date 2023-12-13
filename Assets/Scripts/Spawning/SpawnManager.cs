@@ -24,6 +24,7 @@ public class SpawnManager : MonoBehaviour
     private int maxWaves = 6;
     private int enemyCount;
     private int waveNumber = 0;
+    private int Once = 0;
 
     public DoorActivation doorActivation;
     private float totalGameTime = 100.0f;
@@ -49,12 +50,12 @@ public class SpawnManager : MonoBehaviour
             doorActivation.AmountOfWaves();
         }
 
-        if (waveNumber == maxWaves)
+        if (waveNumber == maxWaves && Once <= 0)
         {
             waveText.gameObject.SetActive(false);
             clearedWavesText.gameObject.SetActive(true);
+            Once = Once + 1;
         }
-
     }
 
     private IEnumerator WaveTimer()
@@ -132,5 +133,10 @@ public class SpawnManager : MonoBehaviour
     public void WaveTextVisibility()
     {
         waveText.gameObject.SetActive(false);
+    }
+
+    public void ClearedWavesTextVisibility()
+    {
+        clearedWavesText.gameObject.SetActive(false);
     }
 }

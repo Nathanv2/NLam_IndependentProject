@@ -968,7 +968,7 @@ MonoBehaviour:
   coinSound: {fileID: 8300000, guid: 253f4853afb3bc143a84c148fb079ffc, type: 3}
   explosionSound: {fileID: 8300000, guid: d3855a8fcd7d4234a9498e9398697035, type: 3}
   Explosion: {fileID: 198917022394846920, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
-  SpawnPowerUp: {fileID: 562891519}
+  spawnManager: {fileID: 562891519}
   gameManager: {fileID: 763381535}
 --- !u!65 &87508019
 BoxCollider:
@@ -10482,7 +10482,7 @@ GameObject:
   - component: {fileID: 1404012533}
   m_Layer: 0
   m_Name: TriggerObstacles
-  m_TagString: Door
+  m_TagString: Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

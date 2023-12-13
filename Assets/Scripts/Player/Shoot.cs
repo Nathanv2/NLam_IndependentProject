@@ -25,7 +25,7 @@ public class Shoot : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Wall") || other.CompareTag("Enemy"))
+        if (other.CompareTag("Wall") || other.CompareTag("Enemy") || other.CompareTag("Trigger"))
         {
             Destroy(gameObject);
         }
