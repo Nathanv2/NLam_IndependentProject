@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
 
     private bool isCrashed = false;
 
-    private void Start()
+    public void StartGame()
     {
         coinsText.gameObject.SetActive(true);
         coinsText.text = "Coins: " + coin;

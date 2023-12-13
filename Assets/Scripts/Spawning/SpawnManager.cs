@@ -29,32 +29,37 @@ public class SpawnManager : MonoBehaviour
     public DoorActivation doorActivation;
     private float totalGameTime = 100.0f;
 
-    private bool spawningEnabled = true;
+    private bool spawningEnabled = false;
+
     // Start is called before the first frame update
-    void Start()
+    public void StartGame()
     {
         StartCoroutine(WaveTimer());
         SpawnBooster();
         waveText.gameObject.SetActive(true);
+        spawningEnabled = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        enemyCount = FindObjectsOfType<destroyedMobs>().Length;
-        if (enemyCount == 0 && waveNumber != maxWaves)
+        if (spawningEnabled)
         {
-            waveNumber++;
-            SpawnWave(waveNumber);
-            waveText.text = "Wave: " + waveNumber;
-            doorActivation.AmountOfWaves();
-        }
+            enemyCount = FindObjectsOfType<destroyedMobs>().Length;
+            if (enemyCount == 0 && waveNumber != maxWaves)
+            {
+                waveNumber++;
+                SpawnWave(waveNumber);
+                waveText.text = "Wave: " + waveNumber;
+                doorActivation.AmountOfWaves();
+            }
 
-        if (waveNumber == maxWaves && Once <= 0)
-        {
-            waveText.gameObject.SetActive(false);
-            clearedWavesText.gameObject.SetActive(true);
-            Once = Once + 1;
+            if (waveNumber == maxWaves && Once <= 0)
+            {
+                waveText.gameObject.SetActive(false);
+                clearedWavesText.gameObject.SetActive(true);
+                Once = Once + 1;
+            }
         }
     }
 

@@ -33,25 +33,30 @@ public class PlayerController : MonoBehaviour
     public SpawnManager spawnManager;
 
     public GameManager gameManager;
+    private bool Movement = false;
 
 
     // Start is called before the first frame update
-    void Start()
+    public void StartGame()
     {
         healthText.gameObject.SetActive(true);
         healthText.text = "Health: " + health;
+        Movement = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Get Inputs to be able to manually control the vehicle
-        horizontalInput = Input.GetAxis("Horizontal");
-        verticalInput = Input.GetAxis("Vertical");
+        if (Movement)
+        {
+            // Get Inputs to be able to manually control the vehicle
+            horizontalInput = Input.GetAxis("Horizontal");
+            verticalInput = Input.GetAxis("Vertical");
 
-        // Allows you to move the vehicle forward with speed
-        transform.Translate(Vector3.forward * Time.deltaTime * speed * verticalInput);
-        transform.Translate(Vector3.right * Time.deltaTime * speed * horizontalInput);
+            // Allows you to move the vehicle forward with speed
+            transform.Translate(Vector3.forward * Time.deltaTime * speed * verticalInput);
+            transform.Translate(Vector3.right * Time.deltaTime * speed * horizontalInput);
+        }
     }
 
     private void OnTriggerEnter(Collider other)

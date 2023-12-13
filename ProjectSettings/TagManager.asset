@@ -17,6 +17,7 @@ TagManager:
   - Boss
   - Portal
   - Trigger
+  - Player Boundary
   layers:
   - Default
   - TransparentFX

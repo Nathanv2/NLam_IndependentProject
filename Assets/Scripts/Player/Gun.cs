@@ -9,18 +9,27 @@ public class Gun : MonoBehaviour
     public float shootDelay = 0.5f; // Adjust the delay between shots
 
     private bool canShoot = true;
+    private bool startShooting = false;
+
+    public void StartGame()
+    {
+        startShooting=true;
+    }
 
     void Update()
     {
-        RotateGunWithKeys();
-
-        if (Input.GetKeyDown(KeyCode.Space) && canShoot)
+        if (startShooting)
         {
-            // Instantiate the projectile with the gun's rotation
-            Instantiate(Projectile, transform.position, transform.rotation);
+            RotateGunWithKeys();
 
-            // Start the delay before allowing the next shot
-            StartCoroutine(ShootDelay());
+            if (Input.GetKeyDown(KeyCode.Space) && canShoot)
+            {
+                // Instantiate the projectile with the gun's rotation
+                Instantiate(Projectile, transform.position, transform.rotation);
+
+                // Start the delay before allowing the next shot
+                StartCoroutine(ShootDelay());
+            }
         }
     }
 
