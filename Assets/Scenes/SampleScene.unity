@@ -5196,6 +5196,7 @@ MonoBehaviour:
   - {fileID: 5600247081898987659, guid: bc402d131abc9fb468680286bb27461a, type: 3}
   Booster: {fileID: 7436890942679182756, guid: 5fed3206df83e85459a9223fe3aeebe8, type: 3}
   coinPrefab: {fileID: 5059055255345807187, guid: 20b6043d51842f343b503e69c11e2b3c, type: 3}
+  gameManager: {fileID: 763381535}
   waveText: {fileID: 112135426}
   clearedWavesText: {fileID: 2012317555}
   spawnInterval: 3
@@ -6402,6 +6403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Door: {fileID: 83947087}
+  spawnManager: {fileID: 562891519}
   gameOverText: {fileID: 1626998381}
   winText: {fileID: 2074383959}
   coinsText: {fileID: 1187481643}
@@ -12647,6 +12649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnManager: {fileID: 562891519}
+  bossScript: {fileID: 1542253526}
 --- !u!65 &1723775313
 BoxCollider:
   m_ObjectHideFlags: 0

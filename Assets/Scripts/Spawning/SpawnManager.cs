@@ -9,6 +9,8 @@ public class SpawnManager : MonoBehaviour
     public GameObject[] Enemies;
     public GameObject Booster;
     public GameObject coinPrefab;
+    public GameManager gameManager;
+
     public TextMeshProUGUI waveText;
     public TextMeshProUGUI clearedWavesText;
 
@@ -52,6 +54,7 @@ public class SpawnManager : MonoBehaviour
             waveText.gameObject.SetActive(false);
             clearedWavesText.gameObject.SetActive(true);
         }
+
     }
 
     private IEnumerator WaveTimer()
@@ -124,5 +127,10 @@ public class SpawnManager : MonoBehaviour
         float randomZPosition2 = Random.Range(spawnAreaZ2.x, spawnAreaZ2.y);
         Vector3 spawnPosition2 = new Vector3(randomXPosition2, spawnYPosition, randomZPosition2);
         return spawnPosition2;
+    }
+
+    public void WaveTextVisibility()
+    {
+        waveText.gameObject.SetActive(false);
     }
 }

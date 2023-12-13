@@ -17,15 +17,20 @@ public class Boss : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        bossHealthText.gameObject.SetActive(true);
-        bossHealthText.text = "BossHealth: " + maxBossHP;
-        UpdateBossHealth();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void BossHealthTextVisibility()
+    {
+        bossHealthText.gameObject.SetActive(true);
+        bossHealthText.text = "BossHealth: " + maxBossHP;
+        UpdateBossHealth();
     }
 
     void OnTriggerEnter(Collider other)

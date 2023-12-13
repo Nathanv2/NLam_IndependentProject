@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 {
     public GameObject Door;
 
+    public SpawnManager spawnManager;
+
     public TextMeshProUGUI gameOverText;
     public TextMeshProUGUI winText;
     public TextMeshProUGUI coinsText;
@@ -40,6 +42,9 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
             gameOverText.gameObject.SetActive(true);
         }
+
+        spawnManager.WaveTextVisibility();
+
     }
 
     public void UpdateCoins()
