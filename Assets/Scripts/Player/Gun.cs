@@ -6,15 +6,21 @@ public class Gun : MonoBehaviour
 {
     public GameObject Projectile;
     public float rotationSpeed = 2000.0f; // Adjust the rotation speed
+    public float shootDelay = 0.5f; // Adjust the delay between shots
+
+    private bool canShoot = true;
 
     void Update()
     {
         RotateGunWithKeys();
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && canShoot)
         {
             // Instantiate the projectile with the gun's rotation
             Instantiate(Projectile, transform.position, transform.rotation);
+
+            // Start the delay before allowing the next shot
+            StartCoroutine(ShootDelay());
         }
     }
 
@@ -31,5 +37,12 @@ public class Gun : MonoBehaviour
         {
             transform.RotateAround(transform.parent.position, Vector3.up, -rotationSpeed * Time.deltaTime);
         }
+    }
+
+    IEnumerator ShootDelay()
+    {
+        canShoot = false;
+        yield return new WaitForSeconds(shootDelay);
+        canShoot = true;
     }
 }
