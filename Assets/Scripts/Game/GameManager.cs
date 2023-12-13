@@ -12,14 +12,20 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI gameOverText;
     public TextMeshProUGUI winText;
     public TextMeshProUGUI coinsText;
+    public TextMeshProUGUI healthText;
 
     private int coin = 0;
+    private int health = 100;
 
     private bool isCrashed = false;
 
     private void Start()
     {
+        coinsText.gameObject.SetActive(true);
         coinsText.text = "Coins: " + coin;
+
+        healthText.gameObject.SetActive(true);
+        healthText.text = "Health: " + health;
     }
 
     public void Victory()

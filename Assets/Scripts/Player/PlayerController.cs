@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,6 +16,9 @@ public class PlayerController : MonoBehaviour
     private int Once = 0;
     private int Health = 100;
     private int Dead = 0;
+
+    public TextMeshProUGUI healthText;
+    private int health = 100;
 
 
     // Declares the input variables
@@ -32,7 +37,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+        healthText.gameObject.SetActive(true);
+        healthText.text = "Health: " + health;
     }
 
     // Update is called once per frame
@@ -62,20 +68,25 @@ public class PlayerController : MonoBehaviour
             Explosion.Play();
             Health = Health - 50;
 
-            if(Health == Dead)
-            {
-                Death();
-            }
+            UpdateHealth();
+            Death();
+
         }
         else if (other.CompareTag("Enemy"))
         {
             Health = Health - 10;
             Debug.Log("OW");
 
-            if(Health == Dead)
-            {
-                Death();
-            }
+            UpdateHealth();
+            Death();
+
+        }
+        else if (other.CompareTag("Boss"))
+        {
+            Health = Health - 50;
+
+            UpdateHealth();
+            Death();
         }
 
         if (other.CompareTag("Door"))
@@ -126,7 +137,20 @@ public class PlayerController : MonoBehaviour
 
     private void Death()
     {
-        gameManager.GameOver();
+        if(Health == Dead)
+        {
+            gameManager.GameOver();
+        }
+    }
+
+    private void UpdateHealth()
+    {
+        healthText.text = "Health: " + Health;
+
+        if(Health < 0)
+        {
+            Health = 0;
+        }
     }
 }
 
