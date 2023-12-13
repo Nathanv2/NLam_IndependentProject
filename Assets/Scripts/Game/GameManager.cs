@@ -11,8 +11,16 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI gameOverText;
     public TextMeshProUGUI winText;
+    public TextMeshProUGUI coinsText;
+
+    private int coin = 0;
 
     private bool isCrashed = false;
+
+    private void Start()
+    {
+        coinsText.text = "Coins: " + coin;
+    }
 
     public void Victory()
     {
@@ -31,6 +39,12 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
             gameOverText.gameObject.SetActive(true);
         }
+    }
+
+    public void UpdateCoins()
+    {
+        coin = coin + 1;
+        coinsText.text = "Coins: " + coin;
     }
 
 }
