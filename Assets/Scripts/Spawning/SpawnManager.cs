@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class SpawnManager : MonoBehaviour
 {
     public GameObject[] Enemies;
     public GameObject Booster;
     public GameObject coinPrefab;
+    public TextMeshProUGUI waveText;
+    public TextMeshProUGUI clearedWavesText;
 
     public float spawnInterval = 3.0f;
     private float spawnYPosition = 101.0f;
@@ -28,6 +32,7 @@ public class SpawnManager : MonoBehaviour
     {
         StartCoroutine(WaveTimer());
         SpawnBooster();
+        waveText.gameObject.SetActive(true);
     }
 
     // Update is called once per frame
@@ -38,8 +43,14 @@ public class SpawnManager : MonoBehaviour
         {
             waveNumber++;
             SpawnWave(waveNumber);
-            Debug.Log("Wave: " + waveNumber);
+            waveText.text = "Wave: " + waveNumber;
             doorActivation.AmountOfWaves();
+        }
+
+        if (waveNumber == maxWaves)
+        {
+            waveText.gameObject.SetActive(false);
+            clearedWavesText.gameObject.SetActive(true);
         }
     }
 
