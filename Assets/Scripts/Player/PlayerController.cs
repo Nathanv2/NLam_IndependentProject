@@ -153,6 +153,7 @@ public class PlayerController : MonoBehaviour
         if(Health < 0)
         {
             Health = 0;
+            healthText.text = "Health: " + Health;
         }
     }
 }
