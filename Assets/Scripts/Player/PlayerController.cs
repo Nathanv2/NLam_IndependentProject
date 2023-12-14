@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
 
     public GameObject Projectile;
     public GameObject Boss;
+    GameObject[] obstacles;
     // Set the speed of the vehicle
     private float speed = 15.0f;
     private int Coins = 0;
@@ -48,6 +49,7 @@ public class PlayerController : MonoBehaviour
 
         healthBar.gameObject.SetActive(true);
         healthBarBackground.gameObject.SetActive(true);
+        obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
     }
 
     // Update is called once per frame
@@ -92,19 +94,16 @@ public class PlayerController : MonoBehaviour
 
         if (other.CompareTag("Trigger"))
         {
-            GameObject cube = GameObject.Find("Obstacle");
-            spawnManager.ClearedWavesTextVisibility();
-
-            if (cube != null)
+            foreach (GameObject obstacle in obstacles)
             {
-                Obstacle obstacle = cube.GetComponent<Obstacle>();
-                if (obstacle != null && Once == 0)
+                Obstacle obstacleScript = obstacle.GetComponent<Obstacle>();
+                if (obstacleScript != null && Once == 0)
                 {
-                    obstacle.playanim();
-                    Once = Once + 1;
+                    obstacleScript.playanim();
                     Debug.Log("NO");
                 }
             }
+            Once = Once + 1;
         }
 
         if (other.CompareTag("Speed Boost"))
