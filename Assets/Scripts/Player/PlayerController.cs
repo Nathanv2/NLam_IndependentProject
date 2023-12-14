@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private int Coins = 0;
     private int maxCoins = 8;
     private int Once = 0;
+    private int oneTime = 0;
     private int Health = 100;
     private int Dead = 0;
 
@@ -38,6 +39,7 @@ public class PlayerController : MonoBehaviour
 
     public Image healthBar;
     public GameObject healthBarBackground;
+
 
 
     // Start is called before the first frame update
@@ -69,13 +71,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Coin"))
-        {
-            GetComponent<AudioSource>().PlayOneShot(coinSound, 1.0f);
-            gameManager.UpdateCoins();
-            Debug.Log(Coins = Coins + 1);
-        }    
-        else if (other.CompareTag("Enemy"))
+
+        if (other.CompareTag("Enemy"))
         {
             Health = Health - 10;
             Debug.Log("OW");
@@ -104,6 +101,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
             Once = Once + 1;
+            spawnManager.ClearedWavesTextVisibility();
         }
 
         if (other.CompareTag("Speed Boost"))
@@ -167,6 +165,14 @@ public class PlayerController : MonoBehaviour
         }
 
         healthText.text = "Health: " + Health;
+    }
+
+    public void ActivateCoin()
+    {
+
+            GetComponent<AudioSource>().PlayOneShot(coinSound, 1.0f);
+            gameManager.UpdateCoins();
+
     }
 
 }

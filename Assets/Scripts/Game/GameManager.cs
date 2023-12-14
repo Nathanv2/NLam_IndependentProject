@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI controlsText;
 
     public AudioSource backgroundAudioSource;
+    public AudioSource victoryAudioSource;
 
     public Button playButton;
     public Button restartButton;
@@ -46,6 +47,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         winText.gameObject.SetActive(true);
         restartButton.gameObject.SetActive(true);
+        backgroundAudioSource.Stop();
+        victoryAudioSource.Play();
     }
 
 
@@ -95,6 +98,11 @@ public class GameManager : MonoBehaviour
     public void RestartVisibility()
     {
         restartButton.gameObject.SetActive(true);
+    }
+
+    public void StopBackgroundAudio()
+    {
+        backgroundAudioSource.Stop();
     }
 
     

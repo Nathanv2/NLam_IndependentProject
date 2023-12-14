@@ -7,6 +7,7 @@ public class Gun : MonoBehaviour
     public GameObject Projectile;
     public float rotationSpeed = 2000.0f; // Adjust the rotation speed
     public float shootDelay = 0.5f; // Adjust the delay between shots
+    public AudioClip laserSound;
 
     private bool canShoot = true;
     private bool startShooting = false;
@@ -26,6 +27,8 @@ public class Gun : MonoBehaviour
             {
                 // Instantiate the projectile with the gun's rotation
                 Instantiate(Projectile, transform.position, transform.rotation);
+
+                GetComponent<AudioSource>().PlayOneShot(laserSound, 1.0f);
 
                 // Start the delay before allowing the next shot
                 StartCoroutine(ShootDelay());
