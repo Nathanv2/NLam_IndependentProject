@@ -15,9 +15,12 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI winText;
     public TextMeshProUGUI coinsText;
     public TextMeshProUGUI titleText;
+    public TextMeshProUGUI controlsText;
 
     public Button playButton;
     public Button restartButton;
+    public Button controlsButton;
+    public Button backButton;
 
     private int coin = 0;
 
@@ -30,6 +33,9 @@ public class GameManager : MonoBehaviour
         playButton.gameObject.SetActive(false);
         Time.timeScale = 1;
         titleText.gameObject.SetActive(false);
+        controlsText.gameObject.SetActive(false);
+        backButton.gameObject.SetActive(false);
+        controlsButton.gameObject.SetActive(false);
     }
 
     public void Victory()
@@ -64,6 +70,22 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void ControlsVisibility()
+    {
+        controlsText.gameObject.SetActive(true);
+        controlsButton.gameObject.SetActive(false);
+        playButton.gameObject.SetActive(false);
+        backButton.gameObject.SetActive(true);
+    }
+
+    public void BackVisibility()
+    {
+        controlsButton.gameObject.SetActive(true);
+        playButton.gameObject.SetActive(true);
+        backButton.gameObject.SetActive(false);
+        controlsText.gameObject.SetActive(false);
     }
 
 }

@@ -51,7 +51,7 @@ public class SpawnManager : MonoBehaviour
             {
                 waveNumber++;
                 SpawnWave(waveNumber);
-                waveText.text = "Wave: " + waveNumber;
+                waveText.text = "Wave " + waveNumber;
                 doorActivation.AmountOfWaves();
             }
 
