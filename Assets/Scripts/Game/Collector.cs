@@ -11,22 +11,13 @@ public class Collector : MonoBehaviour
     {
         if (gameObject.CompareTag("Coin") && other.gameObject.CompareTag("Player"))
         {
-            // Find the PlayerController component on the player GameObject
+            // Finds the PlayerController on the player GameObject
             playerController = other.gameObject.GetComponent<PlayerController>();
 
-            // Check if the PlayerController component was found
-            if (playerController != null)
-            {
-                playerController.ActivateCoin();
-                Destroy(gameObject);
-            }
+            playerController.ActivateCoin();
+            Destroy(gameObject);
         }
 
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
     }
 
     // Update is called once per frame

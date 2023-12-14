@@ -26,6 +26,7 @@ public class DoorActivation : MonoBehaviour
     {
         waveCount++;
 
+        // Activates the animation on the doors once the waves are finished
         if (waveCount < maxWaves)
         {
             Door.SetActive(true);

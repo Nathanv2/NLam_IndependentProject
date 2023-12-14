@@ -9,36 +9,29 @@ public class PlayerController : MonoBehaviour
 
     public GameObject Projectile;
     public GameObject Boss;
+    public SpawnManager spawnManager;
+    public GameManager gameManager;
+    public ParticleSystem Explosion;
     GameObject[] obstacles;
-    // Set the speed of the vehicle
+
+    public float horizontalInput;
+    private float verticalInput;
     private float speed = 15.0f;
     private int Coins = 0;
     private int maxCoins = 8;
     private int Once = 0;
-    private int oneTime = 0;
     private int Health = 100;
     private int Dead = 0;
+    private bool Movement = false;
 
     public TextMeshProUGUI healthText;
-    private int health = 100;
-
-
-    // Declares the input variables
-    public float horizontalInput;
-    private float verticalInput;
+    public TextMeshProUGUI bossAliveText;
+    public TextMeshProUGUI coinsNeedText;
+    public Image healthBar;
+    public GameObject healthBarBackground;
 
     public AudioClip coinSound;
     public AudioClip explosionSound;
-
-    public ParticleSystem Explosion;
-
-    public SpawnManager spawnManager;
-
-    public GameManager gameManager;
-    private bool Movement = false;
-
-    public Image healthBar;
-    public GameObject healthBarBackground;
 
 
 
@@ -46,7 +39,7 @@ public class PlayerController : MonoBehaviour
     public void StartGame()
     {
         healthText.gameObject.SetActive(true);
-        healthText.text = "Health: " + health;
+        healthText.text = "Health: " + Health;
         Movement = true;
 
         healthBar.gameObject.SetActive(true);
@@ -97,7 +90,6 @@ public class PlayerController : MonoBehaviour
                 if (obstacleScript != null && Once == 0)
                 {
                     obstacleScript.playanim();
-                    Debug.Log("NO");
                 }
             }
             Once = Once + 1;
@@ -119,12 +111,20 @@ public class PlayerController : MonoBehaviour
             }
             else if(Boss != null)
             {
+                bossAliveText.gameObject.SetActive(true);
                 Debug.Log("Boss is alive!!!");
             }
             else
             {
+                coinsNeedText.gameObject.SetActive(true);
                 Debug.Log("You are missing some coins!!!");
             }
+        }
+
+        if (other.CompareTag("Trigger Portal"))
+        {
+            bossAliveText.gameObject.SetActive(false);
+            coinsNeedText.gameObject.SetActive(false);
         }
     }
 

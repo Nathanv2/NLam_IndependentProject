@@ -8,14 +8,10 @@ public class Obstacle : MonoBehaviour
     public GameManager gameManager;
     private Animator animPlayer;
     public PlayerController playerController;
+
     void Start()
     {
         animPlayer = GetComponent<Animator>();
-    }
-
-    void Update()
-    {
-
     }
 
     void OnTriggerEnter(Collider other)

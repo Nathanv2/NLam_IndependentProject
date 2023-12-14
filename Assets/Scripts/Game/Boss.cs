@@ -6,28 +6,13 @@ using UnityEngine.UI;
 
 public class Boss : MonoBehaviour
 {
-
-    public int minBossHP = 0;
     public int maxBossHP = 100;
 
     public TextMeshProUGUI bossHealthText;
-
-    public DoorActivation openDoor;
-
-    public GameObject bossHealthBackground;
     public Image bossHealthBar;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public DoorActivation openDoor;
+    public GameObject bossHealthBackground;
 
     public void BossHealthTextVisibility()
     {
@@ -46,7 +31,7 @@ public class Boss : MonoBehaviour
             Destroy(other.gameObject);
             UpdateBossHealth();
 
-            if (minBossHP >= maxBossHP)
+            if (maxBossHP <= 0)
             {
                 Destroy(gameObject);
                 openDoor.DoorOpen();
