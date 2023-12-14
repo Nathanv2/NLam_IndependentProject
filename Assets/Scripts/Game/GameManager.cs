@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI winText;
     public TextMeshProUGUI coinsText;
 
+    public GameObject playButton;
+
     private int coin = 0;
 
     private bool isCrashed = false;
@@ -23,6 +25,7 @@ public class GameManager : MonoBehaviour
     {
         coinsText.gameObject.SetActive(true);
         coinsText.text = "Coins: " + coin;
+        playButton.gameObject.SetActive(false);
     }
 
     public void Victory()

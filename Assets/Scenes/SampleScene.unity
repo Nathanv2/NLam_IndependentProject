@@ -6407,6 +6407,7 @@ MonoBehaviour:
   gameOverText: {fileID: 1626998381}
   winText: {fileID: 2074383959}
   coinsText: {fileID: 1187481643}
+  playButton: {fileID: 1467402608}
 --- !u!4 &763381536
 Transform:
   m_ObjectHideFlags: 0
