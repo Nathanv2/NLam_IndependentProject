@@ -72,18 +72,7 @@ public class PlayerController : MonoBehaviour
             GetComponent<AudioSource>().PlayOneShot(coinSound, 1.0f);
             gameManager.UpdateCoins();
             Debug.Log(Coins = Coins + 1);
-        }
-
-        if (other.CompareTag("Obstacle"))
-        {
-            GetComponent<AudioSource>().PlayOneShot(explosionSound, 1.0f);
-            Explosion.Play();
-            Health = Health - 50;
-
-            UpdateHealth();
-            Death();
-
-        }
+        }    
         else if (other.CompareTag("Enemy"))
         {
             Health = Health - 10;
@@ -140,6 +129,16 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("You are missing some coins!!!");
             }
         }
+    }
+
+    public void CollideObstacle()
+    {
+        GetComponent<AudioSource>().PlayOneShot(explosionSound, 1.0f);
+        Explosion.Play();
+        Health = Health - 50;
+
+        UpdateHealth();
+        Death();
     }
 
     IEnumerator PowerUpCountdown()

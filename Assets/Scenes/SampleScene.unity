@@ -752,6 +752,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BigExplosion
       objectReference: {fileID: 0}
+    - target: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4388947112716342, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1100,7 +1104,7 @@ MonoBehaviour:
   horizontalInput: 0
   coinSound: {fileID: 8300000, guid: 253f4853afb3bc143a84c148fb079ffc, type: 3}
   explosionSound: {fileID: 8300000, guid: d3855a8fcd7d4234a9498e9398697035, type: 3}
-  Explosion: {fileID: 198917022394846920, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
+  Explosion: {fileID: 1456017499}
   spawnManager: {fileID: 562891519}
   gameManager: {fileID: 763381535}
   healthBar: {fileID: 14917845}
@@ -6550,6 +6554,7 @@ MonoBehaviour:
   gameOverText: {fileID: 1626998381}
   winText: {fileID: 2074383959}
   coinsText: {fileID: 1187481643}
+  titleText: {fileID: 1057987377}
   playButton: {fileID: 1467402610}
   restartButton: {fileID: 1070222874}
 --- !u!4 &763381536
@@ -7261,7 +7266,7 @@ GameObject:
   - component: {fileID: 844204473}
   m_Layer: 0
   m_Name: Gun
-  m_TagString: Player
+  m_TagString: Gun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7337,7 +7342,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 844204468}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.025015831, y: 0.19905983, z: 1.1660156}
+  m_LocalPosition: {x: 0.025015831, y: 0.19906184, z: 1.1660156}
   m_LocalScale: {x: 0.39013, y: 0.20525597, z: 1.3062333}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8164,6 +8169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 763381535}
+  playerController: {fileID: 87508018}
 --- !u!1 &911332659
 GameObject:
   m_ObjectHideFlags: 0
@@ -10115,7 +10121,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1187481642
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10125,7 +10131,7 @@ RectTransform:
   m_GameObject: {fileID: 1187481641}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1750310223}
@@ -10133,7 +10139,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 150, y: -50}
+  m_AnchoredPosition: {x: 300, y: -100}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1187481643
@@ -11791,6 +11797,11 @@ MeshFilter:
 --- !u!4 &1456017497 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4388947112716342, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
+  m_PrefabInstance: {fileID: 82802172}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1456017499 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198917022394846920, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
   m_PrefabInstance: {fileID: 82802172}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1467402608
@@ -14837,6 +14848,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 763381535}
+  playerController: {fileID: 87508018}
 --- !u!65 &1838437674
 BoxCollider:
   m_ObjectHideFlags: 0

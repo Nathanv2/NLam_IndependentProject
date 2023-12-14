@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI gameOverText;
     public TextMeshProUGUI winText;
     public TextMeshProUGUI coinsText;
+    public TextMeshProUGUI titleText;
 
     public Button playButton;
     public Button restartButton;
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
         coinsText.text = "Coins: " + coin;
         playButton.gameObject.SetActive(false);
         Time.timeScale = 1;
+        titleText.gameObject.SetActive(false);
     }
 
     public void Victory()

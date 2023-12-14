@@ -19,6 +19,7 @@ TagManager:
   - Trigger
   - Player Boundary
   - Trigger Boss
+  - Gun
   layers:
   - Default
   - TransparentFX

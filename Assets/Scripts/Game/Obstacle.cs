@@ -7,7 +7,7 @@ public class Obstacle : MonoBehaviour
 
     public GameManager gameManager;
     private Animator animPlayer;
-
+    public PlayerController playerController;
     void Start()
     {
         animPlayer = GetComponent<Animator>();
@@ -22,6 +22,7 @@ public class Obstacle : MonoBehaviour
     {
         if (gameObject.CompareTag("Obstacle") && other.gameObject.CompareTag("Player"))
         {
+            playerController.CollideObstacle();
             Destroy(gameObject);
         }
 
