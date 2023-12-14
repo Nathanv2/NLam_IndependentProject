@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI titleText;
     public TextMeshProUGUI controlsText;
 
+    public AudioSource backgroundAudioSource;
+
     public Button playButton;
     public Button restartButton;
     public Button controlsButton;
@@ -36,6 +38,7 @@ public class GameManager : MonoBehaviour
         controlsText.gameObject.SetActive(false);
         backButton.gameObject.SetActive(false);
         controlsButton.gameObject.SetActive(false);
+        backgroundAudioSource.Play();
     }
 
     public void Victory()
@@ -55,6 +58,7 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
             gameOverText.gameObject.SetActive(true);
             restartButton.gameObject.SetActive(true);
+            backgroundAudioSource.Stop();
         }
 
         spawnManager.WaveTextVisibility();
@@ -92,5 +96,7 @@ public class GameManager : MonoBehaviour
     {
         restartButton.gameObject.SetActive(true);
     }
+
+    
 
 }
