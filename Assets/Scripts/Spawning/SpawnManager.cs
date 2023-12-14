@@ -28,7 +28,7 @@ public class SpawnManager : MonoBehaviour
     private int Once = 0;
 
     public DoorActivation doorActivation;
-    private float totalGameTime = 50.0f;
+    private float totalGameTime = 40.0f;
 
     private bool spawningEnabled = false;
 
@@ -118,7 +118,6 @@ public class SpawnManager : MonoBehaviour
         {
             int enemiesIndex = Random.Range(0, Enemies.Length);
             Instantiate(Enemies[enemiesIndex], SpawnPosition2(), Enemies[enemiesIndex].transform.rotation);
-            Debug.Log("Working");
         }
     }
 
@@ -127,7 +126,6 @@ public class SpawnManager : MonoBehaviour
         for (int i = 0; i < numberOfCoins; i++)
         {
             Instantiate(coinPrefab, SpawnPosition2(), coinPrefab.transform.rotation);
-            Debug.Log("Working");
         }
     }
 

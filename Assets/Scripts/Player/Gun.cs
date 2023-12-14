@@ -5,8 +5,8 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
     public GameObject Projectile;
-    public float rotationSpeed = 2000.0f; // Adjust the rotation speed
-    public float shootDelay = 0.5f; // Adjust the delay between shots
+    private float rotationSpeed = 150.0f; // Adjust the rotation speed
+    private float shootDelay = 0.5f; // Adjust the delay between shots
     public AudioClip laserSound;
 
     private bool canShoot = true;

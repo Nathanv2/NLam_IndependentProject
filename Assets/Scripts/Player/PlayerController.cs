@@ -68,7 +68,6 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             Health = Health - 10;
-            Debug.Log("OW");
 
             UpdateHealth();
             Death();
@@ -112,12 +111,10 @@ public class PlayerController : MonoBehaviour
             else if(Boss != null)
             {
                 bossAliveText.gameObject.SetActive(true);
-                Debug.Log("Boss is alive!!!");
             }
             else
             {
                 coinsNeedText.gameObject.SetActive(true);
-                Debug.Log("You are missing some coins!!!");
             }
         }
 
@@ -169,10 +166,9 @@ public class PlayerController : MonoBehaviour
 
     public void ActivateCoin()
     {
-
-            GetComponent<AudioSource>().PlayOneShot(coinSound, 1.0f);
-            gameManager.UpdateCoins();
-
+        GetComponent<AudioSource>().PlayOneShot(coinSound, 1.0f);
+        gameManager.UpdateCoins();
+        Coins = Coins + 1;
     }
 
 }
