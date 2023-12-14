@@ -13,6 +13,7 @@ public class SpawnManager : MonoBehaviour
 
     public TextMeshProUGUI waveText;
     public TextMeshProUGUI clearedWavesText;
+    public TextMeshProUGUI FailedWavesText;
 
     public float spawnInterval = 3.0f;
     private float spawnYPosition = 101.0f;
@@ -71,7 +72,8 @@ public class SpawnManager : MonoBehaviour
         {
             if (Time.time - startTime >= totalGameTime)
             {
-                Debug.Log("Game Over - You didn't complete the waves in time!");
+                WaveTextVisibility();
+                FailedWavesText.gameObject.SetActive(true);
                 Time.timeScale = 0;
                 yield break;
             }
@@ -79,7 +81,7 @@ public class SpawnManager : MonoBehaviour
 
         }
 
-        Debug.Log("You completed all the waves within the time limit. You win!");
+        clearedWavesText.gameObject.SetActive(true);
     }
 
     void SpawnWave(int enemyNum)
