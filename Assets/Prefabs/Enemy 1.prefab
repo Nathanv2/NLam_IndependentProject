@@ -8,12 +8,13 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 116306834957405956}
+  - component: {fileID: 6142600042320949417}
   - component: {fileID: 116306834957405979}
   - component: {fileID: 116306834957405978}
   - component: {fileID: 116306834957405977}
   - component: {fileID: 116306834957405976}
   - component: {fileID: 3493948355220473610}
+  - component: {fileID: 94381582252074527}
   m_Layer: 0
   m_Name: Enemy 1
   m_TagString: Enemy
@@ -21,15 +22,15 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &116306834957405956
-Transform:
+--- !u!224 &6142600042320949417
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 116306834957405983}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 506.22147, y: 100.99999, z: 546.60266}
+  m_LocalPosition: {x: 0, y: 0, z: 546.60266}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -37,6 +38,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 506.22147, y: 100.99999}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!33 &116306834957405979
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -133,12 +139,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!222 &94381582252074527
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116306834957405983}
+  m_CullTransparentMesh: 1
 --- !u!1001 &2471273345684166439
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 116306834957405956}
+    m_TransformParent: {fileID: 6142600042320949417}
     m_Modifications:
     - target: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
       propertyPath: m_Name

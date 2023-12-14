@@ -35,6 +35,9 @@ public class PlayerController : MonoBehaviour
     public GameManager gameManager;
     private bool Movement = false;
 
+    public Image healthBar;
+    public GameObject healthBarBackground;
+
 
     // Start is called before the first frame update
     public void StartGame()
@@ -42,6 +45,9 @@ public class PlayerController : MonoBehaviour
         healthText.gameObject.SetActive(true);
         healthText.text = "Health: " + health;
         Movement = true;
+
+        healthBar.gameObject.SetActive(true);
+        healthBarBackground.gameObject.SetActive(true);
     }
 
     // Update is called once per frame
@@ -153,13 +159,17 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateHealth()
     {
-        healthText.text = "Health: " + Health;
+        float normalizedHealth = (float)Health / 100f;  // Normalize health to a value between 0 and 1
+        healthBar.fillAmount = normalizedHealth;  // Set the fill amount of the Image based on health
 
-        if(Health < 0)
+        if (Health < 0)
         {
             Health = 0;
-            healthText.text = "Health: " + Health;
+            normalizedHealth = 0f;
         }
+
+        healthText.text = "Health: " + Health;
     }
+
 }
 

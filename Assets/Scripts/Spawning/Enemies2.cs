@@ -28,6 +28,7 @@ public class Enemies2 : MonoBehaviour
             spawnManager.SpawnCoins(15);
             Once = Once + 1;
             bossScript.BossHealthTextVisibility();
+
         }
         else if (other.CompareTag("Projectile"))
         {

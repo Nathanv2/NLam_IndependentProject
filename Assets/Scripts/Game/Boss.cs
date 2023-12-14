@@ -14,6 +14,9 @@ public class Boss : MonoBehaviour
 
     public DoorActivation openDoor;
 
+    public GameObject bossHealthBackground;
+    public Image bossHealthBar;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +34,8 @@ public class Boss : MonoBehaviour
         bossHealthText.gameObject.SetActive(true);
         bossHealthText.text = "BossHealth: " + maxBossHP;
         UpdateBossHealth();
+        bossHealthBar.gameObject.SetActive(true);
+        bossHealthBackground.gameObject.SetActive(true);
     }
 
     void OnTriggerEnter(Collider other)
@@ -45,12 +50,17 @@ public class Boss : MonoBehaviour
             {
                 Destroy(gameObject);
                 openDoor.DoorOpen();
+                bossHealthText.gameObject.SetActive(false);
+                bossHealthBar.gameObject.SetActive(false);
+                bossHealthBackground.gameObject.SetActive(false);
             }
         }
     }
 
     public void UpdateBossHealth()
     {
-        bossHealthText.text = "Boss Health: " + maxBossHP;
+        float normalizedHealth = (float)maxBossHP / 100f;  // Normalize health to a value between 0 and 1
+        bossHealthBar.fillAmount = normalizedHealth;
+        bossHealthText.text = "Boss: " + maxBossHP;
     }
 }
