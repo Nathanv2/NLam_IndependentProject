@@ -28,7 +28,7 @@ public class SpawnManager : MonoBehaviour
     private int Once = 0;
 
     public DoorActivation doorActivation;
-    private float totalGameTime = 100.0f;
+    private float totalGameTime = 20.0f;
 
     private bool spawningEnabled = false;
 
@@ -74,6 +74,7 @@ public class SpawnManager : MonoBehaviour
             {
                 WaveTextVisibility();
                 FailedWavesText.gameObject.SetActive(true);
+                gameManager.RestartVisibility();
                 Time.timeScale = 0;
                 yield break;
             }

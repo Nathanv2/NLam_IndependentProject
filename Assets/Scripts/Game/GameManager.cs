@@ -41,8 +41,8 @@ public class GameManager : MonoBehaviour
     public void Victory()
     {
         Time.timeScale = 0;
-        Debug.Log("Ok");
         winText.gameObject.SetActive(true);
+        restartButton.gameObject.SetActive(true);
     }
 
 
@@ -86,6 +86,11 @@ public class GameManager : MonoBehaviour
         playButton.gameObject.SetActive(true);
         backButton.gameObject.SetActive(false);
         controlsText.gameObject.SetActive(false);
+    }
+
+    public void RestartVisibility()
+    {
+        restartButton.gameObject.SetActive(true);
     }
 
 }
